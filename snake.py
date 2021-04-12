@@ -6,13 +6,13 @@ import random
 delay = 0.05
 score = 0
 high_score = 0
-Score = 0
+
 # Creating a window screen
 wn = turtle.Screen()
-wn.title(Score)
-wn.bgcolor("black")
+wn.title("snake")
+wn.bgcolor("blue")
 # the width and height can be put as user's choice
-wn.setup(width=600, height=600)
+wn.setup(width=1920, height=1080)
 wn.tracer(0)
   
 # head of the snake
@@ -31,7 +31,7 @@ food.speed(0)
 food.shape(shapes)
 food.color(colors)
 food.penup()
-food.goto(0, 100)
+food.goto(0, 500)
   
 pen = turtle.Turtle()
 pen.speed(0)
@@ -41,7 +41,7 @@ pen.penup()
 pen.hideturtle()
 pen.goto(0, 250)
 pen.write("Score : 0  High Score : 0", align="center",
-          font=("candara", 50, "bold"))
+          font=("candara", 5, "bold"))
   
   
   
@@ -95,7 +95,7 @@ segments = []
 # Main Gameplay
 while True:
     wn.update()
-    if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
+    if head.xcor() > 960 or head.xcor() < -960 or head.ycor() > 540 or head.ycor() < -540:
         time.sleep(0) #temps avant le restart
         head.goto(0, 0)
         head.direction = "Stop"
@@ -105,7 +105,7 @@ while True:
             segment.goto(1000, 1000)
         segments.clear()
         score = 0
-        delay = 0.1
+        delay = 0.05
         pen.clear()
         pen.write("Score : {} High Score : {} ".format(
             score, high_score), align="center", font=("candara", 24, "bold"))
@@ -122,7 +122,7 @@ while True:
         new_segment.penup()
         segments.append(new_segment)
         delay -= 0.001
-        Score += 10
+        score += 1
         if score > high_score:
             high_score = score
         pen.clear()
